@@ -1,0 +1,368 @@
+/* =====================
+   FUTURISTIC SECTION BASE
+===================== */
+.futuristic-section {
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    #05050f 0%,
+    #070720 40%,
+    #05050f 100%
+  );
+  overflow: hidden;
+}
+
+/* Divider line */
+.futuristic-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00fff0,
+    transparent
+  );
+}
+
+/* =====================
+   GLASS CARD
+===================== */
+.glass-card {
+  max-width: 700px;
+  margin: auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(0,255,240,0.3);
+  box-shadow: 0 0 25px rgba(0,255,240,0.15);
+  text-align: center;
+  animation: glowPulse 4s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 15px rgba(0,255,240,0.2);
+  }
+  to {
+    box-shadow: 0 0 35px rgba(0,255,240,0.5);
+  }
+}
+
+/* =====================
+   PROJECT GRID
+===================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+  max-width: 1000px;
+  margin: auto;
+  padding-top: 0;
+}
+
+.project-card {
+  padding: 30px;
+  background: linear-gradient(145deg, #0a0a2a, #05050f);
+  border-radius: 15px;
+  border: 1px solid rgba(0,255,240,0.3);
+  box-shadow: 0 0 20px rgba(0,255,240,0.15);
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,240,0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: 0.5s;
+}
+
+.project-card:hover::before {
+  transform: translateX(100%);
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 40px rgba(0,255,240,0.5);
+}
+
+.project-card h3 {
+  color: #00fff0;
+  margin-bottom: 25px;
+}
+
+/* =====================
+   CONTACT CARD
+===================== */
+.contact-card p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+/* =====================
+   MOBILE TWEAK
+===================== */
+@media (max-width: 768px) {
+  .glass-card {
+    padding: 20px;
+  }
+}
+
+
+/* =====================
+
+   RESET & GLOBAL
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #05050f;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 30px;
+  background: rgba(5,5,20,0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00fff0;
+  text-shadow: 0 0 12px #00fff0;
+}
+.logo span {
+    text-decoration: underline;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #00fff0;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* =====================
+   HAMBURGER
+===================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #00fff0;
+  margin: 4px 0;
+}
+
+/* =====================
+   HOME SECTION
+===================== */
+.home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(120deg, #05050f, #0a0a2a, #05050f);
+  background-size: 300% 300%;
+  animation: bgMove 12s infinite alternate;
+  overflow: hidden;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Grid digital */
+.home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,240,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,240,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+}
+
+.home::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #05050f
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Canvas particle */
+#particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.home-content {
+  z-index: 2;
+}
+
+.home h1 {
+  font-size: 3rem;
+  color: #00fff0;
+  text-shadow: 0 0 20px #00fff0;
+}
+
+.home p {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #ccccff;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  border: 2px solid #00fff0;
+  color: #00fff0;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #00fff0;
+}
+
+.btn:hover {
+  background: #00fff0;
+  color: #000;
+}
+
+/* =====================
+   SECTION
+===================== */
+section {
+  padding: 100px 30px;
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #00fff0;
+}
+
+.center-text {
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(5,5,20,0.95);
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .home h1 {
+    font-size: 2.2rem;
+  }
+}
+section::before {
+  content: "";
+  display: block;
+  height: 90px;
+  margin-top: -90px;
+  visibility: hidden;
+}
+
+.low-performance .glass-card {
+  animation: none;
+}
+
+.low-performance .home::before {
+  opacity: 0.4;
+}
+section {
+  padding: 100px 30px;
+  margin: 0;
+}
+
